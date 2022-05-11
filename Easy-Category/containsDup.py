@@ -5,10 +5,10 @@
 
 example = [1,2,3,4,5,6,6,7,8,10]
 
-dup = {}
+dup = set()
 
 for n in example:
   if number in dup:
     return True
   else:
-    dup[number] = 1
+    dup.add(n)
