@@ -1,0 +1,34 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        # by using a set, you can hold each character with a value of how mnay times it has been used -> O(n) time movement
+        # move through the compare and check for 2 things: if it does have it, or is there too many
+        
+        # base condition:
+        if len(s) != len(t):
+            return False
+        
+        dic = {}
+        
+        for ch in s:
+            if ch in dic:
+                dic[ch] += 1
+            else:
+                dic[ch] = 1
+            
+        for ch in t:
+            if ch in dic:
+                dic[ch] -= 1
+            else:
+                return False
+        
+        for counter in dic.values():
+            if counter != 0:
+                return False
+        
+        return True
+        
+        """
+        Another solution found online:
+        return sorted(s) == sorted(t)
+        
+        """
